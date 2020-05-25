@@ -24,11 +24,11 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
     super.initState();
+    getLocationData();
   }
 
   @override
   Widget build(BuildContext context) {
-    getLocationData();
     return Scaffold(
       body: Center(
         child: SpinKitDoubleBounce(

@@ -5,6 +5,21 @@ const apiKey = '519e8e8a4817a4d137978f320ac233a8';
 const openWeatherMapURL = 'https://api.openweathermap.org/data/2.5/weather';
 
 class WeatherModel {
+  void getCityWeather(
+    String cityName,
+    completion(var response),
+    failure(String error),
+  ) {
+    Networking network = Networking();
+    String url = '$openWeatherMapURL?q=$cityName&appid=$apiKey&units=metric';
+
+    network.performGetRequest(url, (var response) {
+      completion(response);
+    }, (String error) {
+      failure(error);
+    });
+  }
+
   void getLocationWeather(
     completion(var response),
     failure(String error),
